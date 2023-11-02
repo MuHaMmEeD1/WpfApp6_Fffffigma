@@ -1,0 +1,18 @@
+﻿<Application x:Class="WpfApp6_Figma.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp6_Figma"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MyResurce/Button.xaml" />
+                <ResourceDictionary Source="MyResurce/PassKeeper.xaml" />
+                <ResourceDictionary Source="MyResurce/MiniLabel.xaml" />
+                <ResourceDictionary Source="MyResurce/textBox.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+    </Application.Resources>
+</Application>

@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <ControlTemplate TargetType="Label" x:Key="PassKeeperImage">
+
+        <Image
+          
+            Source="../Images/PassKeeper.png"
+            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+            
+            Height="48"
+            Width="210"
+            
+            
+            />
+
+    </ControlTemplate>
+    
+    
+    
+    
+</ResourceDictionary>

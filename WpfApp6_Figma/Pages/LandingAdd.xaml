@@ -1,0 +1,185 @@
+﻿<Page x:Class="WpfApp6_Figma.Pages.LandingAdd"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp6_Figma.Pages"
+      mc:Ignorable="d" 
+       d:DesignHeight="700" d:DesignWidth="375" ShowsNavigationUI="False"
+      Title="Landing" Background="#f0f0f0">
+
+    <Grid>
+
+        <Grid.Resources>
+
+            <Style TargetType="Border" x:Key="BigBorder">
+
+                <Setter Property="Height" Value="386"/>
+                <Setter Property="Width" Value="335"/>
+                <Setter Property="CornerRadius" Value="3"/>
+                <Setter Property="Background" Value="#FFFFFF"/>
+
+            </Style>
+
+
+        </Grid.Resources>
+
+        <Border 
+            Style="{DynamicResource BigBorder}"
+            VerticalAlignment="Top"
+            
+            Margin="0 20 0 0"
+            
+            />
+
+
+        <Label 
+            
+            Foreground="#203C85"
+            FontSize="15"
+            FontWeight="DemiBold"
+            FontFamily="Corbel"
+            
+            Content="Name:"
+            
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            
+            Margin="35 39 0 0"
+            
+            />
+
+        <Label 
+            
+            Background="#666666"
+            Height="45"
+            Width="335"
+            
+            VerticalAlignment="Top"
+            
+            Margin="20,70,20,0"
+            Content="     name of the website"
+            Foreground="#C0C0C0"
+            FontSize="15"
+            FontWeight="DemiBold"
+            FontFamily="Corbel" Grid.ColumnSpan="2"
+            VerticalContentAlignment="Center"
+            />
+
+        <Label 
+            
+            Foreground="#203C85"
+            FontSize="15"
+            FontWeight="DemiBold"
+            FontFamily="Corbel"
+            
+            Content="Logi n:"
+            
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            
+            Margin="35 134 0 0"
+            
+            />
+
+        <Label 
+            
+            Background="#666666"
+            Height="45"
+            Width="335"
+            
+            VerticalAlignment="Top"
+            
+            Margin="20,168,20,0"
+            Content="     your log in"
+            Foreground="#C0C0C0"
+            FontSize="15"
+            FontWeight="DemiBold"
+            FontFamily="Corbel" Grid.ColumnSpan="2"
+            VerticalContentAlignment="Center"
+            />
+
+        <Label 
+            
+            Foreground="#203C85"
+            FontSize="15"
+            FontWeight="DemiBold"
+            FontFamily="Corbel"
+            
+            Content="Password:"
+            
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            
+            Margin="35 233 0 0"
+            
+            />
+
+        <Label 
+            
+            Background="#666666"
+            Height="45"
+            Width="335"
+            
+            VerticalAlignment="Top"
+            
+            Margin="20,264,20,0"
+            Content="     your password"
+            Foreground="#C0C0C0"
+            FontSize="15"
+            FontWeight="DemiBold"
+            FontFamily="Corbel" Grid.ColumnSpan="2"
+            VerticalContentAlignment="Center"
+            />
+
+        <Label 
+            
+            Foreground="#203C85"
+            FontSize="15"
+            FontWeight="DemiBold"
+            FontFamily="Corbel"
+            
+            Content="Kategoriya:"
+            
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            
+            Margin="35 328 0 0"
+            
+            />
+
+        <Label 
+            
+            Background="#666666"
+            Height="45"
+            Width="335"
+            
+            VerticalAlignment="Top"
+            
+            Margin="20,362,20,0"
+            Content="     category for the others"
+            Foreground="#C0C0C0"
+            FontSize="15"
+            FontWeight="DemiBold"
+            FontFamily="Corbel" Grid.ColumnSpan="2"
+            VerticalContentAlignment="Center"
+            />
+
+
+
+        <Button  
+            Template="{DynamicResource CustomButtonTemplate}"
+            Height="53"
+            Width="335"
+            VerticalAlignment="Top"
+            
+            Content="Add"
+            Margin="0 437 0 0"
+            
+            />
+
+
+
+
+    </Grid>
+</Page>

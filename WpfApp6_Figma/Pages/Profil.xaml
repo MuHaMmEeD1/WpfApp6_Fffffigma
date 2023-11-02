@@ -1,0 +1,457 @@
+﻿<Page x:Class="WpfApp6_Figma.Pages.Profil"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp6_Figma.Pages"
+      mc:Ignorable="d" 
+     d:DesignHeight="700" d:DesignWidth="375"
+      Title="Profil" Background="#f0f0f0">
+
+    <Grid>
+
+
+        <Grid.Resources>
+
+
+            <ControlTemplate TargetType="Button" x:Key="imageBorder">
+
+                <Border
+            
+                    CornerRadius="37"
+                    Height="74"
+                    Width="74"
+                    Margin="0 105 0 0"
+                    VerticalAlignment="Top"
+                    >
+
+                    <Border.Background>
+                        <ImageBrush ImageSource="../Images/default.png" />
+                    </Border.Background>
+
+
+                </Border>
+
+
+
+            </ControlTemplate>
+
+
+            <ControlTemplate TargetType="Button" x:Key="lbtn">
+
+
+                <Grid x:Name="gr1" Width="32" Height="37" VerticalAlignment="Top" Margin="0 175 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="5*"/>
+                    </Grid.RowDefinitions>
+
+
+                    <Label 
+            
+                        Grid.Row="4" 
+                        Name="l1"
+                        Content="Edit"
+                        HorizontalContentAlignment="Center"
+            
+                        Background="Transparent"
+                       
+                        BorderThickness="0" Grid.RowSpan="2"
+          
+            
+          
+                        />
+
+                    <Label 
+            
+                        Grid.Row="4" 
+                        Name="l2"
+                        Content="_______"
+                        
+                        HorizontalContentAlignment="Center"
+                        Background="Transparent"
+                        BorderThickness="0" Grid.RowSpan="2"
+            
+                           
+            
+                        />
+
+
+                </Grid>
+
+
+
+
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="l1" Property="Foreground" Value="#666664" />
+                        <Setter TargetName="l2" Property="Foreground" Value="#666664" />
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="False">
+                        <Setter  TargetName="l1" Property="Foreground" Value="#000000" />
+                        <Setter  TargetName="l2" Property="Foreground" Value="#000000" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+
+            </ControlTemplate>
+
+
+            <ControlTemplate TargetType="Button" x:Key="MiniButton">
+
+                <Border 
+            
+                    x:Name="b"
+            
+                    Background="#FFFFFF"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    CornerRadius="3" 
+                    BorderThickness="0"
+                    Height="{TemplateBinding Height}" 
+                    Width="{TemplateBinding Width}"
+            
+            
+            
+                    >
+
+                    <Label Content="{TemplateBinding Content}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Foreground="#203C85"
+                       FontSize="{TemplateBinding FontSize}"
+                       FontWeight="DemiBold"
+                       FontFamily="Corbel"/>
+                </Border>
+
+
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="b" Property="Background" Value="#B3B3B3" />
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="False">
+                        <Setter  TargetName="b" Property="Background" Value="#FFFFFF" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+
+
+            </ControlTemplate>
+
+
+            <ControlTemplate TargetType="Button" x:Key="GozButton">
+
+
+                <Label  
+                    
+                    >
+
+                    <Label.Background>
+
+                        <ImageBrush ImageSource="../Images/bagliGoz1.png"/>
+
+                    </Label.Background>
+
+
+
+                </Label>
+                
+            </ControlTemplate>
+
+        </Grid.Resources>
+
+
+
+
+
+        <Label 
+               
+               Template="{DynamicResource PassKeeperImage}" 
+               
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Margin="0 28 0 0"
+               />
+
+
+        <Button  Template="{DynamicResource imageBorder}" Click="Button_Click"/>
+
+
+        <Button Template="{DynamicResource lbtn}" Click="Button_Click_3"/>
+
+
+        <Label 
+            
+            Width="110"
+            Height="32"
+            Content="First name:"
+            Foreground="#203C85"
+            FontSize="20"
+            Margin="20 235 0 0"
+            VerticalAlignment="Top"
+            
+            HorizontalAlignment="Left"
+            FontWeight="DemiBold"
+            FontFamily="Corbel"
+            
+            />
+
+        <Border 
+            
+            Style="{DynamicResource MiniBorder}"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="25 270 0 0"
+            
+            
+            
+            
+            />
+
+        <TextBox
+            
+            Name ="FirstName"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="35 270 0 0"
+            
+            Width="210"
+            Height="34"
+            BorderThickness="0"
+            Foreground="#203C85"
+            
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            FontWeight="DemiBold"
+            />
+
+        <Button 
+            
+            Template="{DynamicResource MiniButton}"
+            Height="34"
+            Width="74"
+            Content="change"
+            FontSize="15"
+            Margin="0 270 16 0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            
+            />
+
+
+
+
+
+        <Label 
+            
+            Width="110"
+            Height="32"
+            Content="Last name:"
+            Foreground="#203C85"
+            FontSize="20"
+            Margin="20 318 0 0"
+            VerticalAlignment="Top"
+            
+            HorizontalAlignment="Left"
+            FontWeight="DemiBold"
+            FontFamily="Corbel"
+            
+            />
+
+        <Border 
+            
+            Style="{DynamicResource MiniBorder}"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="25 351 0 0"
+            
+            
+            
+            
+            />
+
+        <TextBox
+            
+            Name ="LastName"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="35 351 0 0"
+            
+            Width="210"
+            Height="34"
+            BorderThickness="0"
+            Foreground="#203C85"
+            
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            FontWeight="DemiBold"
+            />
+
+
+        <Button 
+            
+            Template="{DynamicResource MiniButton}"
+            Height="34"
+            Width="74"
+            Content="change"
+            FontSize="15"
+            Margin="0 351 16 0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            
+            />
+
+
+
+
+
+
+        <Label 
+            
+            Width="110"
+            Height="32"
+            Content="Password:"
+            Foreground="#203C85"
+            FontSize="20"
+            Margin="20 401 0 0"
+            VerticalAlignment="Top"
+            
+            HorizontalAlignment="Left"
+            FontWeight="DemiBold"
+            FontFamily="Corbel"
+            
+            />
+
+        <Border 
+            
+            Style="{DynamicResource MiniBorder}"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="25 434 0 0"
+            
+            
+            
+            
+            />
+
+        <PasswordBox
+            
+            Name ="PasswordName"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="35 434 0 0"
+            
+            Width="210"
+            Height="34"
+            BorderThickness="0"
+            Foreground="#203C85"
+            
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            FontWeight="DemiBold"
+           
+           PasswordChar="*" 
+            
+            />
+
+
+        <Button 
+            
+            Template="{DynamicResource MiniButton}"
+            Height="34"
+            Width="74"
+            Content="change"
+            FontSize="15"
+            Margin="0 434 16 0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            
+            />
+
+        <Button 
+          
+            Template="{DynamicResource GozButton}"
+            
+            Height="20" 
+            Width="25"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            
+            Margin="220 442 0 0"
+            BorderThickness="0"
+            
+            
+            />
+
+
+
+
+
+        
+        
+        
+        
+        <Label 
+            
+            Width="110"
+            Height="32"
+            Content="Mail:"
+            Foreground="#203C85"
+            FontSize="20"
+            Margin="20 484 0 0"
+            VerticalAlignment="Top"
+            
+            HorizontalAlignment="Left"
+            FontWeight="DemiBold"
+            FontFamily="Corbel"
+            
+            />
+
+        <Border 
+            
+            Style="{DynamicResource MiniBorder}"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="25 517 0 0"
+            
+            
+            
+            
+            />
+
+        <TextBox
+            
+            Name ="Mail"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Margin="35 517 0 0"
+            
+            Width="210"
+            Height="34"
+            BorderThickness="0"
+            Foreground="#203C85"
+            
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            FontWeight="DemiBold"
+            />
+
+        <Button 
+            
+            Template="{DynamicResource MiniButton}"
+            Height="34"
+            Width="74"
+            Content="change"
+            FontSize="15"
+            Margin="0 517 16 0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            
+            />
+        
+        
+
+
+
+
+
+    </Grid>
+</Page>
