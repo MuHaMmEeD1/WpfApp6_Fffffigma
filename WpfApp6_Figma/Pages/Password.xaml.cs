@@ -1,7 +1,10 @@
-﻿using System;
+using System;
+using System.Buffers.Text;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,8 +27,9 @@ namespace WpfApp6_Figma.Pages
         int y_password = 0;
         int y_confirmpass = 0;
 
+        Person person = new Person();
 
-        public Password()
+        public Password(Person person)
         {
             InitializeComponent();
 
@@ -34,7 +38,7 @@ namespace WpfApp6_Figma.Pages
 
             y_password = 2;
             y_confirmpass = 2;
-
+            this.person = person;
         }
 
         private void passwordTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -49,7 +53,33 @@ namespace WpfApp6_Figma.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Done());
+
+            if (passwordTextBox.Text == confirmpassTextBox.Text && passwordTextBox.Text.Length > 7)
+            {
+
+
+
+                person.password = passwordTextBox.Text;
+                List<Person> list = new List<Person>();
+
+
+                list = JsonSerializer.Deserialize<List<Person>>(File.ReadAllText("../../../person.json"));
+
+                list.Add(person);
+
+                File.WriteAllText("../../../person.json", JsonSerializer.Serialize(list, new JsonSerializerOptions() { WriteIndented = true }));
+
+                NavigationService.Navigate(new Done());
+            }
+            else
+            {
+                passwordTextBox.Foreground = Brushes.Red;
+                confirmpassTextBox.Foreground = Brushes.Red;
+            }
+
+
+
+           
         }
     }
 }
