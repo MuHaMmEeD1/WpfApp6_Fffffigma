@@ -1,7 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -48,12 +50,71 @@ namespace WpfApp6_Figma.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Profil());
+
+
+
+
+            int index = 0;
+
+            List<Person> persons = new List<Person>();
+
+            persons = JsonSerializer.Deserialize<List<Person>>(File.ReadAllText("../../../person.json"));
+
+            bool yoxlayan = false;
+
+            for (int i = 0; i < persons!.Count; i++)
+            {
+                if (persons[i].email == loginTextBox.Text && persons[i].password == passwordTextBox.Text)
+                {
+                    index = i;
+                    yoxlayan = true;
+                    break;
+                }
+            }
+
+            if (yoxlayan)
+            {
+                NavigationService.Navigate(new Profil(index));
+            }
+            else { loginTextBox.Foreground = Brushes.Red; passwordTextBox.Foreground = Brushes.Red; }
+
+            
+
+
+
         }
+
+
+
 
         private void FPasswordRI__Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Email());
+
+
+            List<Person> persons = new List<Person>();
+
+            persons = JsonSerializer.Deserialize<List<Person>>(File.ReadAllText("../../../person.json"));
+
+            bool yoxla = false;
+
+            for (int i = 0; i < persons.Count; i++)
+            {
+                if (persons[i].email == loginTextBox.Text)
+                {
+                    yoxla = true;
+                    break;
+                }
+            }
+
+
+            if (yoxla)
+            {
+                NavigationService.Navigate(new Email());
+            }
+            else { loginTextBox.Foreground = Brushes.Red; }
+
+
+            
         }
     }
 }
