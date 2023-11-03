@@ -1,6 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,7 +24,7 @@ namespace WpfApp6_Figma.Pages
     {
 
         int y_email = 0;
-
+        int randomSay = Random.Shared.Next(100000, 999999);
         public Email()
         {
             InitializeComponent();
@@ -39,7 +41,49 @@ namespace WpfApp6_Figma.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Code());
+
+
+            bool tap = true;
+
+            string email_ = "@gmail.com";
+            if (emailTextBox.Text.Length >= email_.Length)
+            {
+                for (int i = 0; i < email_.Length; i++)
+                {
+                    if (emailTextBox.Text[emailTextBox.Text.Length - (i + 1)] != email_[9 - i]) { tap = false; break; }
+                }
+            }
+
+            if (tap)
+            {
+
+
+                string senderEmail = "figmaf098@gmail.com";
+                string senderPassword = "sjce rmeu scnr yrmz";
+
+                string recipientEmail = $"{emailTextBox.Text}";
+
+                MailMessage mailMessage = new MailMessage(senderEmail, recipientEmail);
+                mailMessage.Subject = "Email Notification";
+                mailMessage.Body = $"{randomSay}";
+
+
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new NetworkCredential(senderEmail, senderPassword);
+                smtpClient.EnableSsl = true;
+
+                smtpClient.Send(mailMessage);
+
+
+                NavigationService.Navigate(new Code(randomSay, emailTextBox.Text));
+            }
+
+
+
+
+
+            
         }
     }
 }
