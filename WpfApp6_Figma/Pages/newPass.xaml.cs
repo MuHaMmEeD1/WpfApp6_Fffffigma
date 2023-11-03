@@ -1,7 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,9 +26,9 @@ namespace WpfApp6_Figma.Pages
         int y_newpass = 0;
         int y_confirmpass = 0;
 
+        string email;
 
-
-        public newPass()
+        public newPass(string email)
         {
             InitializeComponent();
 
@@ -38,6 +40,7 @@ namespace WpfApp6_Figma.Pages
 
             y_newpass = 2;
             y_confirmpass = 2;
+            this.email = email;
         }
 
         private void newpassTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -52,7 +55,40 @@ namespace WpfApp6_Figma.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Done());
+
+
+
+            if (newpassTextBox.Text == confirmpassTextBox.Text && newpassTextBox.Text.Length >= 7)
+            {
+
+
+                List<Person> list = new List<Person>();
+
+
+                list = JsonSerializer.Deserialize<List<Person>>(File.ReadAllText("../../../person.json"));
+
+
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].email == email) { list[i].password = newpassTextBox.Text; break; }
+                }
+
+
+                File.WriteAllText("../../../person.json", JsonSerializer.Serialize(list, new JsonSerializerOptions() { WriteIndented = true }));
+
+
+                NavigationService.Navigate(new Done());
+            }
+            else
+            {
+
+                newpassTextBox.Foreground = Brushes.Red;
+                confirmpassTextBox.Foreground = Brushes.Red;
+
+            };
+
+
+           
         }
     }
 }
