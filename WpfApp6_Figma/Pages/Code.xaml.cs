@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,21 +22,29 @@ namespace WpfApp6_Figma.Pages
     {
 
         int y_code = 0;
+        int randomSay;
 
-        public Code()
+        string email;
+
+        public Code(int randomSay, string email)
         {
             InitializeComponent();
 
-
+            this.randomSay = randomSay; 
             codeTextBox.Text = "code";
 
             y_code = 2;
-
+            this.email = email;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new newPass());
+
+            if (codeTextBox.Text == randomSay.ToString())
+            {
+                NavigationService.Navigate(new newPass(email));
+            }
+
         }
 
         private void codeTextBox_TextChanged(object sender, TextChangedEventArgs e)
